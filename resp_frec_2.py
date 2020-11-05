@@ -2,8 +2,9 @@
 
 import plotly.graph_objects as go
 from dft_lib_correct import *
-from palitos2.py import stem_plot
+from palitos2 import stem_plot
 from numpy import *
+
 
 n = arange(64)
 xn = sin(2*pi*2*n/64)
@@ -16,10 +17,10 @@ hn_zeros = array(hn + list(vec_zeros)) #Fill H(N) with zeros for the 64 points.
 n_zeros = arange(N)
 
 rx,ix,mx,ax = mi_dft(xn)
-e_xn = rx + ix * ij
+e_xn = rx + ix * 1j
 
 rh,ih,mh,ah = mi_dft(hn_zeros)
-e_hn = rh + ih * ij
+e_hn = rh + ih * 1j
 
 e_yn = e_xn * e_hn
 
@@ -27,7 +28,7 @@ yn_r, yn_i = mi_idft(e_yn)
 
 fig = go.Figure()
 fig.add_traces(go.Scatter(x = n_zeros, y = xn))
-fig.add_traces(go.Scatter(x = n_zeros, y = yn_r, color = 'firebrick'))
+fig.add_traces(go.Scatter(x = n_zeros, y = yn_r))
 fig.show()
 
 #fig = go.Figure()

@@ -2,7 +2,7 @@
 
 import plotly.graph_objects as go
 from dft_lib_correct import *
-from palitos2.py import stem_plot
+from palitos2 import stem_plot
 from numpy import *
 
 xn = [10, 22, 24, 42, 37, 77, 89, 22, 63, 9, 52, 31, 48, 53, 29, 14, 47, 38, 70, 0, 0, 0, 0, 0]
@@ -52,7 +52,7 @@ fig.update_layout(xaxis=dict(range[0,len(xn)]),yaxis=dic(range=[0,100]))
 fig.show()
 
 ########
-fig.goFigure()
+fig = go.Figure()
 fig.add_traces(go.Scatter(x = n_zeros, y = xn))
 fig.add_traces(go.Scatter(x = n_zeros, y = xr))
 fig.update_layout(xaxis=dict(range = [0,len(xn)]),yaxis=dict(range=[0,100]))
